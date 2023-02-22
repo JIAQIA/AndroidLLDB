@@ -33,12 +33,25 @@ kotlin {
 
 // Configure Gradle IntelliJ Plugin - read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    pluginName.set(properties("pluginName"))
-    version.set(properties("platformVersion"))
-    type.set(properties("platformType"))
+    /**
+     * 如果你选择的intellij 版本在仓库 中没有，或者用的是本地版本 那么可以用属性 intellij.localPath来指定安装目录，
+     * 如果指定了intellij.localPath，那么intellij.version 和 intellij.type就不需要指定
+     * 指定CL后需要下载一个1.1G的包，指定当前目录的CLion.app即可省略此下载步骤
+     * */
+    localPath.set("/Applications/CLion.app/Contents/")
+    pluginName.set("AndroidLLDB")
+//    version.set(properties("platformVersion"))
+    // 'CL' - CLion.
+    // 'IC' - IntelliJ IDEA Community Edition.
+    // 'IU' - IntelliJ IDEA Ultimate Edition.
+    // 'PY' - PyCharm Professional Edition.
+    // 'PC' - PyCharm Community Edition.
+//    type.set("CL")
 
     // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
     plugins.set(properties("platformPlugins").split(',').map(String::trim).filter(String::isNotEmpty))
+    // 为CLion开发做的配置 参考：https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html?from=jetbrains.org
+    plugins.set(listOf("com.intellij.clion"))
 }
 
 // Configure Gradle Changelog Plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin

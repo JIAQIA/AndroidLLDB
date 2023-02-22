@@ -1,10 +1,13 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.jiaqia.androidlldb</id>
-    <name>IntelliJ Platform Plugin AndroidLLDB</name>
+    <name>AndroidLLDB</name>
     <vendor>jiaqia</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+<!--    <depends>com.intellij.modules.cidr.lang</depends>-->
+<!--    <depends>com.intellij.modules.cidr.debugger</depends>-->
+    <depends>com.intellij.clion</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.jiaqia.androidlldb.services.MyApplicationService"/>
