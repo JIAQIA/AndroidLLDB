@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.jiaqia.androidlldb.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.jiaqia.androidlldb.MyBundle
 
 class MyApplicationService {
 
